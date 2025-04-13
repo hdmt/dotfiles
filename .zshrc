@@ -7,13 +7,9 @@ fi
 
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-# nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 PROMPT="%1~ %# "
 
 alias ll='ls -laF --color'
-alias sail='./vendor/bin/sail'
 alias gg='git grep -i'
 alias gl='git grep -l -i'
 

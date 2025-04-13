@@ -1,0 +1,10 @@
+biomejs.biome
+eamodio.gitlens
+editorconfig.editorconfig
+github.copilot
+github.copilot-chat
+github.github-vscode-theme
+janisdd.vscode-edit-csv
+ms-ceintl.vscode-language-pack-ja
+prisma.prisma
+saoudrizwan.claude-dev
