@@ -13,7 +13,7 @@ alias ll='ls -laF --color'
 alias gg='git grep -i'
 alias gl='git grep -l -i'
 
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 #export PATH="/usr/local/bin:$PATH"
 
 

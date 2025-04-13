@@ -12,12 +12,22 @@ ln -sf ~/dotfiles/.aliases ~/.aliases
 # Git 設定
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 
+# Homebrew チェック＆インストール
+if ! command -v brew &>/dev/null; then
+  echo "🍺 Homebrew が見つかりません。インストールを開始します..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  echo "✅ Homebrew は既にインストール済み"
+fi
+
 # Brewfile パッケージ
-echo "🍺 Brewfile を使ってパッケージをインストール中..."
-if command -v brew &>/dev/null && [ -f ~/dotfiles/Brewfile ]; then
+echo "📦 Brewfile を使ってパッケージをインストール中..."
+if [ -f ~/dotfiles/Brewfile ]; then
   brew bundle --file=~/dotfiles/Brewfile
 else
-  echo "⚠️ brew または Brewfile が見つかりません。スキップします。"
+  echo "⚠️ Brewfile が見つかりません。スキップします。"
 fi
 
 # npm グローバルパッケージ
@@ -27,15 +37,6 @@ if command -v npm &>/dev/null; then
   npm install -g shadcn-ui
 else
   echo "⚠️ npm が見つかりません。スキップします。"
-fi
-
-# VS Code 拡張
-echo "🧩 VS Code 拡張をインストール中..."
-if command -v code &>/dev/null && [ -f ~/dotfiles/vscode-extensions.txt ]; then
-  xargs -n 1 code --install-extension < ~/dotfiles/vscode-extensions.txt
-else
-  echo "⚠️ code コマンドが使えないか、拡張リストがありません"
-  echo "👉 VS Code を起動 → Shell Command: 'code' command in PATH を実行してください"
 fi
 
 echo "✅ install完了！"
