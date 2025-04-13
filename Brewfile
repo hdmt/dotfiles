@@ -1,6 +1,3 @@
-# サービス管理用（redis, postgresなど起動停止コマンドに使える）
-tap "homebrew/services"
-
 # ----------------------------
 # CLIツール・開発基本ツール群
 # ----------------------------
@@ -28,5 +25,5 @@ cask "notion"
 cask "zoom"
 cask "spotify"
 cask "todoist"
-cask "kindle"
+
 
